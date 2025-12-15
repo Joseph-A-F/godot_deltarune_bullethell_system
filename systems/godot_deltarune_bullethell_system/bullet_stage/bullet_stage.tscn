@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b626k4bu7e4d8"]
+
+[ext_resource type="Script" uid="uid://cvejic2s5j3ne" path="res://systems/godot_deltarune_bullethell_system/bullet_stage/bullet_stage.gd" id="1_dfrip"]
+
+[node name="bullet_stage" type="Node2D" unique_id=1585094129]
+script = ExtResource("1_dfrip")
+dev_state = true

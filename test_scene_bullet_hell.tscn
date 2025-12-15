@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://dpaell35ca3u5"]
+
+[ext_resource type="PackedScene" uid="uid://cd70fts8dymum" path="res://systems/viewport_collision_frame/viewport_collision_frame.tscn" id="1_5i64i"]
+[ext_resource type="PackedScene" uid="uid://b66t8q5equ15m" path="res://systems/godot_deltarune_bullethell_system/soul/soul.tscn" id="1_g3ll3"]
+[ext_resource type="PackedScene" uid="uid://cgdmmpfnf38sf" path="res://systems/godot_deltarune_bullethell_system/bullet_stage/bullets/bullet.tscn" id="2_2hlqm"]
+[ext_resource type="PackedScene" uid="uid://b626k4bu7e4d8" path="res://systems/godot_deltarune_bullethell_system/bullet_stage/bullet_stage.tscn" id="4_ye2jh"]
+
+[sub_resource type="Environment" id="Environment_g3ll3"]
+background_mode = 3
+background_energy_multiplier = 0.0
+volumetric_fog_enabled = true
+volumetric_fog_albedo = Color(0, 0, 0, 1)
+
+[node name="Node2D" type="Node2D" unique_id=1073182020]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=847242469]
+environment = SubResource("Environment_g3ll3")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1194159229]
+editor_draw_limits = true
+
+[node name="viewport_collision_frame" parent="Camera2D" unique_id=964108777 instance=ExtResource("1_5i64i")]
+
+[node name="soul" parent="." unique_id=1954751940 groups=["player"] instance=ExtResource("1_g3ll3")]
+unique_name_in_owner = true
+
+[node name="bullet" parent="." unique_id=912322612 groups=["bullet"] instance=ExtResource("2_2hlqm")]
+position = Vector2(183.55, 0)
+
+[node name="bullet_stage" parent="." unique_id=1585094129 instance=ExtResource("4_ye2jh")]

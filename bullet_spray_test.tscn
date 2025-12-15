@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://cpgt833vsocyx"]
+
+[ext_resource type="Script" uid="uid://bfggjt67uubf4" path="res://bullet_spray.gd" id="1_n4l2t"]
+
+[node name="BulletSprayTest" type="Node2D" unique_id=241797147]
+
+[node name="bullet_spray" type="Node2D" parent="." unique_id=824304850]
+script = ExtResource("1_n4l2t")
+surface_length_of_emission = 560
+cooldown_timer = 25.39
+
+[node name="Timer" type="Timer" parent="bullet_spray" unique_id=449866824]
+autostart = true
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1271812077]
+
+[connection signal="timeout" from="bullet_spray/Timer" to="bullet_spray" method="_on_timer_timeout"]

@@ -1,0 +1,168 @@
+[gd_scene load_steps=16 format=3 uid="uid://b66t8q5equ15m"]
+
+[ext_resource type="Texture2D" uid="uid://bilwb2ck6ukq0" path="res://systems/godot_deltarune_bullethell_system/soul/textures/soul.png" id="1_7iwn2"]
+[ext_resource type="Script" uid="uid://dv54jvpnuljgk" path="res://systems/godot_deltarune_bullethell_system/soul/soul.gd" id="1_nq8dp"]
+[ext_resource type="Shader" uid="uid://deiog0v6jdjuj" path="res://systems/godot_deltarune_bullethell_system/soul/shader_opacity.gdshader" id="2_dadpy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nq8dp"]
+radius = 15.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_dadpy"]
+blend_mode = 1
+particles_animation = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = true
+
+[sub_resource type="Gradient" id="Gradient_dadpy"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.3375, 0.54464287, 0.73035717)
+colors = PackedColorArray(0.618617, 0.618617, 0.61861694, 1, 0.36767125, 0.36767122, 0.36767122, 1, 0.19588682, 0.19588682, 0.19588682, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_baij3"]
+gradient = SubResource("Gradient_dadpy")
+width = 32
+height = 32
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.63)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_baij3"]
+shader = ExtResource("2_dadpy")
+shader_parameter/opacity = 1.0
+
+[sub_resource type="Animation" id="Animation_dadpy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Soul:material:shader_parameter/opacity")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_kais3"]
+resource_name = "hurt"
+length = 3.0
+step = 35.102
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Soul:material:shader_parameter/opacity")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.099999994, 0.24038833, 0.41712615, 0.666563, 0.9402327, 1.4703944, 2.0177855, 2.4967763, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 2.6390166),
+"update": 0,
+"values": [0.04, 1.105, 0.04, 0.565, 0.04, 0.565, 0.04, 0.565, -0.107, 1.105]
+}
+tracks/1/type = "animation"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath("glow_player")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": PackedStringArray("glow_hurt", "glow"),
+"times": PackedFloat32Array(0, 2)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ib4qn"]
+_data = {
+&"RESET": SubResource("Animation_dadpy"),
+&"hurt": SubResource("Animation_kais3")
+}
+
+[sub_resource type="Animation" id="Animation_ib4qn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("glow:texture:fill_to")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 0.63)]
+}
+
+[sub_resource type="Animation" id="Animation_baij3"]
+resource_name = "glow"
+length = 3.0
+loop_mode = 1
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("glow:texture:fill_to")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.033333335, 1.4333333, 3, 3.0333333),
+"transitions": PackedFloat32Array(2.297397, 1, 0.4999999, 1),
+"update": 0,
+"values": [Vector2(1, 0), Vector2(0.89, 0), Vector2(1, 0), Vector2(1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_nnc7f"]
+resource_name = "glow_hurt"
+length = 2.445
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("glow:texture:fill_to")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.26666668, 1.3, 2.2333333),
+"transitions": PackedFloat32Array(0.24999996, 1, 1, 3.2490091),
+"update": 0,
+"values": [Vector2(1, 0), Vector2(0.53, 0.21), Vector2(0.88, 0.21), Vector2(1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nnc7f"]
+_data = {
+&"RESET": SubResource("Animation_ib4qn"),
+&"glow": SubResource("Animation_baij3"),
+&"glow_hurt": SubResource("Animation_nnc7f")
+}
+
+[node name="soul" type="CharacterBody2D" unique_id=1314277613]
+motion_mode = 1
+script = ExtResource("1_nq8dp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1173420351]
+shape = SubResource("CircleShape2D_nq8dp")
+
+[node name="glow" type="Sprite2D" parent="." unique_id=1876066222]
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_dadpy")
+position = Vector2(1.9073486e-06, -1.9073486e-06)
+scale = Vector2(2.28, 2.28)
+texture = SubResource("GradientTexture2D_baij3")
+
+[node name="Soul" type="Sprite2D" parent="." unique_id=890968232]
+texture_filter = 1
+material = SubResource("ShaderMaterial_baij3")
+scale = Vector2(1.205, 1.205)
+texture = ExtResource("1_7iwn2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=457754761]
+libraries = {
+&"": SubResource("AnimationLibrary_ib4qn")
+}
+
+[node name="glow_player" type="AnimationPlayer" parent="." unique_id=953188313]
+libraries = {
+&"": SubResource("AnimationLibrary_nnc7f")
+}

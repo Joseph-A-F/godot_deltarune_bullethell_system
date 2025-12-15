@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://cd70fts8dymum"]
+
+[ext_resource type="Script" uid="uid://c8t70gl7nmq3h" path="res://systems/viewport_collision_frame/viewport_collision_frame.gd" id="1_a0opq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2hlqm"]
+size = Vector2(336, 1008)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5i64i"]
+size = Vector2(1289, 344)
+
+[node name="StaticBody2D" type="StaticBody2D" unique_id=964108777]
+script = ExtResource("1_a0opq")
+
+[node name="left" type="CollisionShape2D" parent="." unique_id=1295689088]
+position = Vector2(-745, -2)
+shape = SubResource("RectangleShape2D_2hlqm")
+
+[node name="right" type="CollisionShape2D" parent="." unique_id=2050618638]
+position = Vector2(745, -2)
+shape = SubResource("RectangleShape2D_2hlqm")
+
+[node name="top" type="CollisionShape2D" parent="." unique_id=1173900682]
+position = Vector2(-1.5, -495)
+shape = SubResource("RectangleShape2D_5i64i")
+
+[node name="bottom" type="CollisionShape2D" parent="." unique_id=1120722527]
+position = Vector2(-4, 491)
+shape = SubResource("RectangleShape2D_5i64i")

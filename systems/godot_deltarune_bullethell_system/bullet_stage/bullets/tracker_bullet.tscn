@@ -1,0 +1,51 @@
+[gd_scene load_steps=9 format=3 uid="uid://cvxnr3xyb17m8"]
+
+[ext_resource type="PackedScene" uid="uid://cgdmmpfnf38sf" path="res://systems/godot_deltarune_bullethell_system/bullet_stage/bullets/bullet.tscn" id="1_rtali"]
+[ext_resource type="Script" uid="uid://caea8t3hnvimq" path="res://systems/godot_deltarune_bullethell_system/bullet_stage/bullets/tracker_bullet.gd" id="2_ajctm"]
+[ext_resource type="Texture2D" uid="uid://cxhnwjdhse264" path="res://assets/bullet_hell_angel_sprite_sheet.png" id="3_4hvv4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pkaul"]
+atlas = ExtResource("3_4hvv4")
+region = Rect2(0, 40, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lr01v"]
+atlas = ExtResource("3_4hvv4")
+region = Rect2(40, 40, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g5g07"]
+atlas = ExtResource("3_4hvv4")
+region = Rect2(80, 40, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l87mr"]
+atlas = ExtResource("3_4hvv4")
+region = Rect2(120, 40, 40, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8x2fm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pkaul")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lr01v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g5g07")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l87mr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Bullet" unique_id=912322612 instance=ExtResource("1_rtali")]
+script = ExtResource("2_ajctm")
+chaser = false
+speed = 264
+
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=1869965665]
+texture_filter = 1
+scale = Vector2(1.41, 1.41)
+sprite_frames = SubResource("SpriteFrames_8x2fm")

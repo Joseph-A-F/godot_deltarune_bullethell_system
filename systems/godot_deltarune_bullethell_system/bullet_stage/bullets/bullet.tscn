@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://cgdmmpfnf38sf"]
+
+[ext_resource type="Script" uid="uid://d1wf1tfa7qet8" path="res://systems/godot_deltarune_bullethell_system/bullet_stage/bullets/bullet.gd" id="1_v7oki"]
+[ext_resource type="Texture2D" uid="uid://5h4vnkg7p8iq" path="res://icon.svg" id="2_v8qja"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1grub"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_v8qja")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v8qja"]
+radius = 63.07139
+
+[node name="Bullet" type="Node2D" unique_id=912322612]
+script = ExtResource("1_v7oki")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1869965665]
+sprite_frames = SubResource("SpriteFrames_1grub")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2006870494]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1823198985]
+shape = SubResource("CircleShape2D_v8qja")
+
+[connection signal="body_shape_entered" from="Area2D" to="." method="_on_area_2d_body_shape_entered"]
