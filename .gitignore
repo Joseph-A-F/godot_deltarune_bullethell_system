@@ -1,0 +1,22 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+assets/bullet_hell_angel_sprite_sheet.kra
+assets/bullet_hell_angel_sprite_sheet.kra.1~backup
+assets/bullet_hell_angel_sprite_sheet.kra.2~backup
+assets/bullet_hell_angel_sprite_sheet.kra.3~backup
+assets/bullet_hell_angel_sprite_sheet.kra.4~backup
+assets/bullet_hell_angel_sprite_sheet.png
+assets/bullet_hell_angel_sprite_sheet.png.1~backup
+assets/bullet_hell_angel_sprite_sheet.png.import
+addons/godot-git-plugin/git_plugin.gdextension
+addons/godot-git-plugin/git_plugin.gdextension.uid
+addons/godot-git-plugin/LICENSE
+addons/godot-git-plugin/plugin.cfg
+addons/godot-git-plugin/THIRDPARTY.md
+addons/godot-git-plugin/linux/libgit_plugin.linux.editor.x86_64.so
+addons/godot-git-plugin/macos/libgit_plugin.macos.editor.universal.dylib
+addons/godot-git-plugin/win64/libgit_plugin.windows.editor.x86_64.dll
+addons/godot-git-plugin/win64/libgit_plugin.windows.editor.x86_64.exp
+addons/godot-git-plugin/win64/libgit_plugin.windows.editor.x86_64.lib
+.DS_Store

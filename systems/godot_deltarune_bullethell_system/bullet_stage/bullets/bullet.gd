@@ -8,8 +8,8 @@ extends Node2D
 @export var health = 100;
 #@export var follows = false
  
+@export var direction: Vector2;
 
-var direction: Vector2;
 
 func change_direction_to_soul():
 	var angle_to_soul = get_angle_to(soul.position)
@@ -27,8 +27,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-
 	position += direction * speed * delta
+	if position.distance_to(Vector2(0,0)) > 10000:
+		queue_free()
 	pass
 
 
