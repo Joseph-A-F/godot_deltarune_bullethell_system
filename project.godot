@@ -15,6 +15,10 @@ run/main_scene="uid://dpaell35ca3u5"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+LoadWindowPositionScale="*res://systems/window_utilities/load_window_position_scale.gd"
+
 [display]
 
 window/size/viewport_width=720

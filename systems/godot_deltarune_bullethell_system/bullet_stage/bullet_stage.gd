@@ -19,23 +19,14 @@ func spawn_tracker(position: Vector2) -> void:
 	pass
 
 func spawn_shreader() -> void:
-	
 	pass
 
 func spawn_tears() -> void:
-	
-	
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if (dev_state):
 		if randi_range(0,10) == 0:
-			
 			pass
-		#if randi_range(0,10) == 2:
-			#add_sibling(
-				#preload("res://systems/godot_deltarune_bullethell_system/bullet_stage/bullets/tracker_bullet.tscn").instantiate()
-				#)
-			#pass
 	pass

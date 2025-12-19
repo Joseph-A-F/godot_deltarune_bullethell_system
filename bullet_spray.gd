@@ -38,14 +38,14 @@ func fire():
 	'''
 
 	var start_position: Vector2 = Vector2(
-		position.x + cos(angle-90)*surface_length_of_emission / 2,
-		position.y + sin(angle-90)*surface_length_of_emission / 2 
+		position.x + cos(angle-PI/2)*surface_length_of_emission / 2,
+		position.y + sin(angle-PI/2)*surface_length_of_emission / 2 
 	)
 
 	#diff vector 
 	var diff_vector: Vector2 = -Vector2(
-		cos(angle-90)*distance_between_bullets,
-		sin(angle-90)*distance_between_bullets,
+		cos(angle-PI/2)*distance_between_bullets,
+		sin(angle-PI/2)*distance_between_bullets,
 	)
 	
 	var ref_vector = Vector2(start_position)

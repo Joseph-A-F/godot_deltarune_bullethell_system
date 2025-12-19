@@ -7,8 +7,9 @@
 
 [node name="bullet_spray" type="Node2D" parent="." unique_id=824304850]
 script = ExtResource("1_n4l2t")
-surface_length_of_emission = 962
-bullets_emitted = 5
+angle = 3.31
+surface_length_of_emission = 1541
+bullets_emitted = 26
 cooldown_timer = 18.84
 
 [node name="Timer" type="Timer" parent="bullet_spray" unique_id=449866824]
@@ -18,6 +19,6 @@ autostart = true
 visible = false
 
 [node name="soul" parent="." unique_id=1314277613 instance=ExtResource("2_1sl34")]
-position = Vector2(11, -590)
+position = Vector2(-228, 55)
 
 [connection signal="timeout" from="bullet_spray/Timer" to="bullet_spray" method="_on_timer_timeout"]
